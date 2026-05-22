@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: alluxio-master
+  namespace: nexoryx-datalake
+spec:
+  serviceName: alluxio-master
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alluxio-master
+  template:
+    metadata:
+      labels:
+        app: alluxio-master
+    spec:
+      containers:
+      - name: alluxio-master
+        image: alluxio/alluxio:2.9.4
+        ports:
+        - containerPort: 19999
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alluxio-master
+  namespace: nexoryx-datalake
+spec:
+  selector:
+    app: alluxio-master
+  ports:
+  - port: 19999
