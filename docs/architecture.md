@@ -1,13 +1,3 @@
-# Architecture
+# Nexoryx_DataLake Architecture
 
-MinIO Object Storage
-        |
-Alluxio Cache Layer
-        |
-+------------------+
-| Spark | Trino |
-+------------------+
-        |
-Hive Metastore
-        |
-PostgreSQL
+Production-grade infrastructure automation.
